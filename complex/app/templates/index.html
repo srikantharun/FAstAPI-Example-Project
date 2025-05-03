@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+    
+    <main>
+        <section class="welcome">
+            <h2>Welcome to our Complex FastAPI Example!</h2>
+            <p>This is a demonstration of a full-featured FastAPI application with authentication, database integration, and more.</p>
+        </section>
+        
+        <section class="api-docs">
+            <h2>API Documentation</h2>
+            <p>Explore our API using the interactive documentation:</p>
+            <ul>
+                <li><a href="/api/v1/docs">Swagger UI</a></li>
+                <li><a href="/api/v1/redoc">ReDoc</a></li>
+            </ul>
+        </section>
+        
+        <section class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>User authentication with JWT</li>
+                <li>SQLAlchemy ORM integration</li>
+                <li>Role-based access control</li>
+                <li>Interactive API documentation</li>
+                <li>Database migrations</li>
+                <li>Dependency injection</li>
+                <li>Environment-based configuration</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; {{ year }} Complex FastAPI Example</p>
+    </footer>
+    
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+</body>
+</html>
