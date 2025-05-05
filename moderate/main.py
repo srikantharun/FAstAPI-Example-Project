@@ -1,9 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+import sys
+import os
 
-from .database import create_tables
-from .routers import items
+# Add the parent directory to sys.path to enable absolute imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from moderate.database import create_tables
+from moderate.routers import items
 
 # Initialize FastAPI app
 app = FastAPI(

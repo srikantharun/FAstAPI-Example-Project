@@ -145,6 +145,8 @@ complex/
 4. Access the API at http://localhost:8000
 5. Access the documentation at http://localhost:8000/api/v1/docs or http://localhost:8000/api/v1/redoc
 
+Note: The Swagger documentation is available at http://localhost:8000/api/v1/docs (not at the default /docs path)
+
 ## Default Credentials
 
 The application is initialized with a default superuser:
