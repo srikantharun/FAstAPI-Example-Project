@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Dict, Optional, List, Union, Any
 import datetime
 
@@ -11,7 +11,7 @@ class PredictionInput(BaseModel):
         description="Dictionary of feature names and values"
     )
     
-    class Config:
+    model_config = ConfigDict(
         json_schema_extra = {
             "example": {
                 "features": {
@@ -21,6 +21,7 @@ class PredictionInput(BaseModel):
                 }
             }
         }
+    )
 
 class PredictionResult(BaseModel):
     """
@@ -29,6 +30,8 @@ class PredictionResult(BaseModel):
     prediction: float
     model_version: str
     timestamp: datetime.datetime
+    
+    model_config = ConfigDict(protected_namespaces=())
 
 class ActualValueInput(BaseModel):
     """
@@ -48,8 +51,7 @@ class HistoricalPrediction(BaseModel):
     actual: Optional[float] = None
     model_version: str
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True, protected_namespaces=())
 
 class PredictionsList(BaseModel):
     """

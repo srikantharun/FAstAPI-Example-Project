@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Dict, List, Optional, Union
 import datetime
 
@@ -18,8 +18,7 @@ class ModelMetricsData(BaseModel):
     model_version: str
     data_size: int
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True, protected_namespaces=())
 
 class FeatureDriftData(BaseModel):
     """
@@ -42,8 +41,7 @@ class DriftReport(BaseModel):
     features_drift: List[FeatureDriftData]
     dataset_drift: bool
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True, protected_namespaces=())
 
 class MonitoringReport(BaseModel):
     """
@@ -54,5 +52,4 @@ class MonitoringReport(BaseModel):
     html_path: str  # Path to the HTML report
     timestamp: datetime.datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
